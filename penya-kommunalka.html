@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>РџРµРЅСЏ Р·Р° РєРѕРјРјСѓРЅР°Р»СЊРЅС‹Рµ СѓСЃР»СѓРіРё (Р–РљРҐ) вЂ” РєР°Р»СЊРєСѓР»СЏС‚РѕСЂ РЅРµСѓСЃС‚РѕР№РєРё</title>
-<meta name="description" content="Р Р°СЃС‡С‘С‚ РїРµРЅРё Р·Р° РїСЂРѕСЃСЂРѕС‡РєСѓ РѕРїР»Р°С‚С‹ Р–РљРЈ: 1/300 СЃС‚Р°РІРєРё РґРѕ 90 РґРЅРµР№, 1/130 СЃ 91-РіРѕ РґРЅСЏ. Р¤РѕСЂРјСѓР»Р° РїРѕ Р–Рљ Р Р¤, РїСЂРёРјРµСЂС‹ СЂР°СЃС‡С‘С‚Р° РґР»СЏ С„РёР·РёС‡РµСЃРєРёС… Р»РёС†.">
+<title>Пеня за коммунальные услуги (ЖКХ) — калькулятор неустойки</title>
+<meta name="description" content="Расчёт пени за просрочку оплаты ЖКУ: 1/300 ставки до 90 дней, 1/130 с 91-го дня. Формула по ЖК РФ, примеры расчёта для физических лиц.">
 <link rel="canonical" href="https://deniska322s.github.io/kalkulator/penya-kommunalka.html">
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -28,47 +28,47 @@ footer { text-align: center; padding: 30px 20px; color: #6b7280; font-size: 0.85
 </style>
 </head>
 <body>
-<header><div class="container"><h1>РљР°Р»СЊРєСѓР»СЏС‚РѕСЂ РїРµРЅРё Р·Р° Р–РљРҐ</h1></div></header>
+<header><div class="container"><h1>Калькулятор пени за ЖКХ</h1></div></header>
 <div class="container">
   <div class="card">
-    <label for="debt">РЎСѓРјРјР° Р·Р°РґРѕР»Р¶РµРЅРЅРѕСЃС‚Рё Р·Р° Р–РљРЈ (в‚Ѕ)</label>
+    <label for="debt">Сумма задолженности за ЖКУ (₽)</label>
     <input type="number" id="debt" min="0" value="15000">
-    <label for="days">Р”РЅРµР№ РїСЂРѕСЃСЂРѕС‡РєРё</label>
+    <label for="days">Дней просрочки</label>
     <input type="number" id="days" min="1" value="120">
-    <label for="rate">РљР»СЋС‡РµРІР°СЏ СЃС‚Р°РІРєР° Р¦Р‘ Р Р¤ (%)</label>
+    <label for="rate">Ключевая ставка ЦБ РФ (%)</label>
     <input type="number" id="rate" min="0" value="21">
-    <button onclick="calc()">Р Р°СЃСЃС‡РёС‚Р°С‚СЊ РїРµРЅСЋ Р·Р° РєРѕРјРјСѓРЅР°Р»РєСѓ</button>
+    <button onclick="calc()">Рассчитать пеню за коммуналку</button>
     <div class="result" id="r">
-      <div class="amount" id="total">0 в‚Ѕ</div>
+      <div class="amount" id="total">0 ₽</div>
       <div class="detail" id="detail"></div>
     </div>
   </div>
 
   <div class="card article">
-    <h2>РљР°Рє СЃС‡РёС‚Р°РµС‚СЃСЏ РїРµРЅСЏ Р·Р° РєРѕРјРјСѓРЅР°Р»СЊРЅС‹Рµ СѓСЃР»СѓРіРё</h2>
-    <p>РџРѕСЂСЏРґРѕРє СѓСЃС‚Р°РЅРѕРІР»РµРЅ СЃС‚. 155 Р–РёР»РёС‰РЅРѕРіРѕ РєРѕРґРµРєСЃР° Р Р¤. Р”Р»СЏ С„РёР·РёС‡РµСЃРєРёС… Р»РёС†:</p>
+    <h2>Как считается пеня за коммунальные услуги</h2>
+    <p>Порядок установлен ст. 155 Жилищного кодекса РФ. Для физических лиц:</p>
     <ol>
-      <li><strong>РЎ 1 РїРѕ 30 РґРµРЅСЊ РїСЂРѕСЃСЂРѕС‡РєРё:</strong> РїРµРЅСЏ РЅРµ РЅР°С‡РёСЃР»СЏРµС‚СЃСЏ.</li>
-      <li><strong>РЎ 31 РїРѕ 90 РґРµРЅСЊ:</strong> 1/300 РєР»СЋС‡РµРІРѕР№ СЃС‚Р°РІРєРё Р¦Р‘ Р·Р° РєР°Р¶РґС‹Р№ РґРµРЅСЊ.</li>
-      <li><strong>РЎ 91-РіРѕ РґРЅСЏ:</strong> 1/130 РєР»СЋС‡РµРІРѕР№ СЃС‚Р°РІРєРё Р¦Р‘ Р·Р° РєР°Р¶РґС‹Р№ РґРµРЅСЊ.</li>
+      <li><strong>С 1 по 30 день просрочки:</strong> пеня не начисляется.</li>
+      <li><strong>С 31 по 90 день:</strong> 1/300 ключевой ставки ЦБ за каждый день.</li>
+      <li><strong>С 91-го дня:</strong> 1/130 ключевой ставки ЦБ за каждый день.</li>
     </ol>
-    <p><strong>РџСЂРёРјРµСЂ.</strong> Р”РѕР»Рі 15 000 в‚Ѕ, РїСЂРѕСЃСЂРѕС‡РєР° 120 РґРЅРµР№, СЃС‚Р°РІРєР° 21%:</p>
-    <p>30 РґРЅРµР№ Р»СЊРіРѕС‚РЅС‹С…: 0 в‚Ѕ<br>
-    60 РґРЅРµР№ Г— 1/300: 15 000 Г— 21% Г· 300 Г— 60 = <strong>630 в‚Ѕ</strong><br>
-    30 РґРЅРµР№ Г— 1/130: 15 000 Г— 21% Г· 130 Г— 30 = <strong>726,92 в‚Ѕ</strong><br>
-    РС‚РѕРіРѕ: <strong>1 356,92 в‚Ѕ</strong></p>
-    <p>РџРµРЅСЏ РґР»СЏ СѓРїСЂР°РІР»СЏСЋС‰РёС… РєРѕРјРїР°РЅРёР№ Рё СЂРµСЃСѓСЂСЃРѕСЃРЅР°Р±Р¶Р°СЋС‰РёС… РѕСЂРіР°РЅРёР·Р°С†РёР№ СЃС‡РёС‚Р°РµС‚СЃСЏ СЃС‚СЂРѕР¶Рµ: СЃ 1-РіРѕ РґРЅСЏ РїРѕ 1/300, СЃ 91-РіРѕ вЂ” 1/130.</p>
+    <p><strong>Пример.</strong> Долг 15 000 ₽, просрочка 120 дней, ставка 21%:</p>
+    <p>30 дней льготных: 0 ₽<br>
+    60 дней × 1/300: 15 000 × 21% ÷ 300 × 60 = <strong>630 ₽</strong><br>
+    30 дней × 1/130: 15 000 × 21% ÷ 130 × 30 = <strong>726,92 ₽</strong><br>
+    Итого: <strong>1 356,92 ₽</strong></p>
+    <p>Пеня для управляющих компаний и ресурсоснабжающих организаций считается строже: с 1-го дня по 1/300, с 91-го — 1/130.</p>
   </div>
 
   <div class="card article">
-    <p><a href="index.html">в†ђ РЈРЅРёРІРµСЂСЃР°Р»СЊРЅС‹Р№ РєР°Р»СЊРєСѓР»СЏС‚РѕСЂ РїРµРЅРµР№</a></p>
-    <p><a href="penya-44-fz.html">РџРµРЅСЏ РїРѕ 44-Р¤Р—</a></p>
-    <p><a href="penya-nalogi.html">РџРµРЅСЏ РїРѕ РЅР°Р»РѕРіР°Рј</a></p>
+    <p><a href="index.html">← Универсальный калькулятор пеней</a></p>
+    <p><a href="penya-44-fz.html">Пеня по 44-ФЗ</a></p>
+    <p><a href="penya-nalogi.html">Пеня по налогам</a></p>
   </div>
 </div>
-<footer><p>В© 2026 РљР°Р»СЊРєСѓР»СЏС‚РѕСЂ РїРµРЅРµР№ РїРѕ СЃС‚Р°РІРєРµ Р¦Р‘ Р Р¤</p></footer>
+<footer><p>© 2026 Калькулятор пеней по ставке ЦБ РФ</p></footer>
 <script>
-function fmt(n){return n.toLocaleString("ru-RU",{minimumFractionDigits:2,maximumFractionDigits:2})+" в‚Ѕ";}
+function fmt(n){return n.toLocaleString("ru-RU",{minimumFractionDigits:2,maximumFractionDigits:2})+" ₽";}
 function calc(){
   var d=parseFloat(document.getElementById("debt").value)||0;
   var days=parseInt(document.getElementById("days").value,10)||0;
@@ -80,7 +80,7 @@ function calc(){
   var total=p1+p2;
   document.getElementById("r").classList.add("show");
   document.getElementById("total").textContent=fmt(total);
-  document.getElementById("detail").textContent="Р›СЊРіРѕС‚РЅС‹Р№ РїРµСЂРёРѕРґ: 30 РґРЅ. | 1/300 Р·Р° 31-90 РґРЅ.: "+fmt(p1)+" | 1/130 СЃ 91 РґРЅ.: "+fmt(p2);
+  document.getElementById("detail").textContent="Льготный период: 30 дн. | 1/300 за 31-90 дн.: "+fmt(p1)+" | 1/130 с 91 дн.: "+fmt(p2);
 }
 </script>
 </body>

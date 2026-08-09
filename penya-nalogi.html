@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>РџРµРЅСЏ РїРѕ РЅР°Р»РѕРіР°Рј Рё СЃС‚СЂР°С…РѕРІС‹Рј РІР·РЅРѕСЃР°Рј вЂ” РєР°Р»СЊРєСѓР»СЏС‚РѕСЂ РїРѕ СЃС‚. 75 РќРљ Р Р¤</title>
-<meta name="description" content="Р Р°СЃС‡С‘С‚ РїРµРЅРё РїРѕ РЅР°Р»РѕРіР°Рј РїРѕ СЃС‚. 75 РќРљ Р Р¤: 1/300 РєР»СЋС‡РµРІРѕР№ СЃС‚Р°РІРєРё РґРѕ 30 РґРЅРµР№, СЃ 31-РіРѕ РґРЅСЏ вЂ” 1/150 РґР»СЏ РѕСЂРіР°РЅРёР·Р°С†РёР№. РџСЂРёРјРµСЂС‹ Рё Р°РєС‚СѓР°Р»СЊРЅР°СЏ СЃС‚Р°РІРєР°.">
+<title>Пеня по налогам и страховым взносам — калькулятор по ст. 75 НК РФ</title>
+<meta name="description" content="Расчёт пени по налогам по ст. 75 НК РФ: 1/300 ключевой ставки до 30 дней, с 31-го дня — 1/150 для организаций. Примеры и актуальная ставка.">
 <link rel="canonical" href="https://deniska322s.github.io/kalkulator/penya-nalogi.html">
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -29,50 +29,50 @@ footer { text-align: center; padding: 30px 20px; color: #6b7280; font-size: 0.85
 </style>
 </head>
 <body>
-<header><div class="container"><h1>РљР°Р»СЊРєСѓР»СЏС‚РѕСЂ РїРµРЅРё РїРѕ РЅР°Р»РѕРіР°Рј (СЃС‚. 75 РќРљ Р Р¤)</h1></div></header>
+<header><div class="container"><h1>Калькулятор пени по налогам (ст. 75 НК РФ)</h1></div></header>
 <div class="container">
   <div class="card">
-    <label for="debt">РЎСѓРјРјР° РЅРµРґРѕРёРјРєРё РїРѕ РЅР°Р»РѕРіСѓ (в‚Ѕ)</label>
+    <label for="debt">Сумма недоимки по налогу (₽)</label>
     <input type="number" id="debt" min="0" value="100000">
-    <label for="days">Р”РЅРµР№ РїСЂРѕСЃСЂРѕС‡РєРё</label>
+    <label for="days">Дней просрочки</label>
     <input type="number" id="days" min="1" value="45">
-    <label for="type">РљС‚Рѕ РїР»Р°С‚РёС‚</label>
+    <label for="type">Кто платит</label>
     <select id="type">
-      <option value="fiz">Р¤РёР·РёС‡РµСЃРєРѕРµ Р»РёС†Рѕ / РРџ</option>
-      <option value="org" selected>РћСЂРіР°РЅРёР·Р°С†РёСЏ</option>
+      <option value="fiz">Физическое лицо / ИП</option>
+      <option value="org" selected>Организация</option>
     </select>
-    <label for="rate">РљР»СЋС‡РµРІР°СЏ СЃС‚Р°РІРєР° Р¦Р‘ Р Р¤ (%)</label>
+    <label for="rate">Ключевая ставка ЦБ РФ (%)</label>
     <input type="number" id="rate" min="0" value="21">
-    <button onclick="calc()">Р Р°СЃСЃС‡РёС‚Р°С‚СЊ РїРµРЅСЋ РїРѕ РЅР°Р»РѕРіСѓ</button>
+    <button onclick="calc()">Рассчитать пеню по налогу</button>
     <div class="result" id="r">
-      <div class="amount" id="total">0 в‚Ѕ</div>
+      <div class="amount" id="total">0 ₽</div>
       <div class="detail" id="detail"></div>
     </div>
   </div>
 
   <div class="card article">
-    <h2>РџСЂР°РІРёР»Р° СЂР°СЃС‡С‘С‚Р° РїРµРЅРё РїРѕ СЃС‚. 75 РќРљ Р Р¤</h2>
+    <h2>Правила расчёта пени по ст. 75 НК РФ</h2>
     <ol>
-      <li><strong>Р¤РёР·РёС‡РµСЃРєРёРµ Р»РёС†Р° Рё РРџ:</strong> 1/300 РєР»СЋС‡РµРІРѕР№ СЃС‚Р°РІРєРё Р¦Р‘ Р·Р° РєР°Р¶РґС‹Р№ РґРµРЅСЊ РїСЂРѕСЃСЂРѕС‡РєРё.</li>
-      <li><strong>РћСЂРіР°РЅРёР·Р°С†РёРё:</strong> РїРµСЂРІС‹Рµ 30 РґРЅРµР№ вЂ” 1/300 СЃС‚Р°РІРєРё; СЃ 31-РіРѕ РґРЅСЏ вЂ” 1/150 СЃС‚Р°РІРєРё.</li>
+      <li><strong>Физические лица и ИП:</strong> 1/300 ключевой ставки ЦБ за каждый день просрочки.</li>
+      <li><strong>Организации:</strong> первые 30 дней — 1/300 ставки; с 31-го дня — 1/150 ставки.</li>
     </ol>
-    <p><strong>РџСЂРёРјРµСЂ (РѕСЂРіР°РЅРёР·Р°С†РёСЏ).</strong> РќРµРґРѕРёРјРєР° 100 000 в‚Ѕ, РїСЂРѕСЃСЂРѕС‡РєР° 45 РґРЅРµР№, СЃС‚Р°РІРєР° 21%:</p>
-    <p>30 РґРЅРµР№: 100 000 Г— 21% Г· 300 Г— 30 = <strong>2 100 в‚Ѕ</strong><br>
-    15 РґРЅРµР№: 100 000 Г— 21% Г· 150 Г— 15 = <strong>2 100 в‚Ѕ</strong><br>
-    РС‚РѕРіРѕ: <strong>4 200 в‚Ѕ</strong></p>
-    <p>РџРµРЅРё РЅРµ РЅР°С‡РёСЃР»СЏСЋС‚СЃСЏ РЅР° РЅРµРґРѕРёРјРєСѓ, РµСЃР»Рё РѕРЅР° РѕР±СЂР°Р·РѕРІР°Р»Р°СЃСЊ РёР·-Р·Р° РѕС‚Р·С‹РІР°/Р±Р»РѕРєРёСЂРѕРІРєРё СЃС‡С‘С‚Р° РёР»Рё Р°СЂРµСЃС‚Р° РёРјСѓС‰РµСЃС‚РІР° (РїРї. 3 Рї. 3 СЃС‚. 75 РќРљ Р Р¤).</p>
+    <p><strong>Пример (организация).</strong> Недоимка 100 000 ₽, просрочка 45 дней, ставка 21%:</p>
+    <p>30 дней: 100 000 × 21% ÷ 300 × 30 = <strong>2 100 ₽</strong><br>
+    15 дней: 100 000 × 21% ÷ 150 × 15 = <strong>2 100 ₽</strong><br>
+    Итого: <strong>4 200 ₽</strong></p>
+    <p>Пени не начисляются на недоимку, если она образовалась из-за отзыва/блокировки счёта или ареста имущества (пп. 3 п. 3 ст. 75 НК РФ).</p>
   </div>
 
   <div class="card article">
-    <p><a href="index.html">в†ђ РЈРЅРёРІРµСЂСЃР°Р»СЊРЅС‹Р№ РєР°Р»СЊРєСѓР»СЏС‚РѕСЂ РїРµРЅРµР№</a></p>
-    <p><a href="penya-44-fz.html">РџРµРЅСЏ РїРѕ 44-Р¤Р—</a></p>
-    <p><a href="penya-kommunalka.html">РџРµРЅСЏ Р·Р° Р–РљРҐ</a></p>
-    <p><a href="stavka-cb.html">РСЃС‚РѕСЂРёСЏ РєР»СЋС‡РµРІРѕР№ СЃС‚Р°РІРєРё</a></p>
+    <p><a href="index.html">← Универсальный калькулятор пеней</a></p>
+    <p><a href="penya-44-fz.html">Пеня по 44-ФЗ</a></p>
+    <p><a href="penya-kommunalka.html">Пеня за ЖКХ</a></p>
+    <p><a href="stavka-cb.html">История ключевой ставки</a></p>
   </div>
 </div>
-<footer><p>В© 2026 РљР°Р»СЊРєСѓР»СЏС‚РѕСЂ РїРµРЅРµР№ РїРѕ СЃС‚Р°РІРєРµ Р¦Р‘ Р Р¤</p></footer>
+<footer><p>© 2026 Калькулятор пеней по ставке ЦБ РФ</p></footer>
 <script>
-function fmt(n){return n.toLocaleString("ru-RU",{minimumFractionDigits:2,maximumFractionDigits:2})+" в‚Ѕ";}
+function fmt(n){return n.toLocaleString("ru-RU",{minimumFractionDigits:2,maximumFractionDigits:2})+" ₽";}
 function calc(){
   var d=parseFloat(document.getElementById("debt").value)||0;
   var days=parseInt(document.getElementById("days").value,10)||0;
@@ -82,10 +82,10 @@ function calc(){
   if(isOrg){
     var d1=Math.min(days,30), d2=Math.max(days-30,0);
     p=d*(r/100/300)*d1+d*(r/100/150)*d2;
-    document.getElementById("detail").textContent="РћСЂРіР°РЅРёР·Р°С†РёСЏ: 1/300 Р·Р° "+d1+" РґРЅ. + 1/150 Р·Р° "+d2+" РґРЅ.";
+    document.getElementById("detail").textContent="Организация: 1/300 за "+d1+" дн. + 1/150 за "+d2+" дн.";
   }else{
     p=d*(r/100/300)*days;
-    document.getElementById("detail").textContent="Р¤РёР·Р»РёС†Рѕ/РРџ: 1/300 Р·Р° "+days+" РґРЅ.";
+    document.getElementById("detail").textContent="Физлицо/ИП: 1/300 за "+days+" дн.";
   }
   document.getElementById("r").classList.add("show");
   document.getElementById("total").textContent=fmt(p);
