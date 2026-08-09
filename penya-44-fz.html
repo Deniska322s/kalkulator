@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Пеня по 44-ФЗ — калькулятор неустойки поставщика 1/300 и 1/150</title>
-<meta name="description" content="Расчёт пени по 44-ФЗ для поставщика: 1/300 ключевой ставки до 30 дней, с 31-го дня — 1/150. Формулы, примеры и актуальная ставка ЦБ РФ.">
-<link rel="canonical" href="https://USER.github.io/peni-kalkulyator/penya-44-fz.html">
+<title>РџРµРЅСЏ РїРѕ 44-Р¤Р— вЂ” РєР°Р»СЊРєСѓР»СЏС‚РѕСЂ РЅРµСѓСЃС‚РѕР№РєРё РїРѕСЃС‚Р°РІС‰РёРєР° 1/300 Рё 1/150</title>
+<meta name="description" content="Р Р°СЃС‡С‘С‚ РїРµРЅРё РїРѕ 44-Р¤Р— РґР»СЏ РїРѕСЃС‚Р°РІС‰РёРєР°: 1/300 РєР»СЋС‡РµРІРѕР№ СЃС‚Р°РІРєРё РґРѕ 30 РґРЅРµР№, СЃ 31-РіРѕ РґРЅСЏ вЂ” 1/150. Р¤РѕСЂРјСѓР»С‹, РїСЂРёРјРµСЂС‹ Рё Р°РєС‚СѓР°Р»СЊРЅР°СЏ СЃС‚Р°РІРєР° Р¦Р‘ Р Р¤.">
+<link rel="canonical" href="https://deniska322s.github.io/kalkulator/penya-44-fz.html">
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.6; color: #1f2937; background: #f3f4f6; }
@@ -30,47 +30,47 @@ footer { text-align: center; padding: 30px 20px; color: #6b7280; font-size: 0.85
 </head>
 <body>
 <header>
-  <div class="container"><h1>Калькулятор пени по 44-ФЗ (для поставщика)</h1></div>
+  <div class="container"><h1>РљР°Р»СЊРєСѓР»СЏС‚РѕСЂ РїРµРЅРё РїРѕ 44-Р¤Р— (РґР»СЏ РїРѕСЃС‚Р°РІС‰РёРєР°)</h1></div>
 </header>
 <div class="container">
   <div class="card">
-    <label for="debt">Цена контракта / сумма обязательства (₽)</label>
+    <label for="debt">Р¦РµРЅР° РєРѕРЅС‚СЂР°РєС‚Р° / СЃСѓРјРјР° РѕР±СЏР·Р°С‚РµР»СЊСЃС‚РІР° (в‚Ѕ)</label>
     <input type="number" id="debt" min="0" value="500000">
-    <label for="days">Дней просрочки</label>
+    <label for="days">Р”РЅРµР№ РїСЂРѕСЃСЂРѕС‡РєРё</label>
     <input type="number" id="days" min="1" value="45">
-    <label for="rate">Ключевая ставка ЦБ РФ (%)</label>
+    <label for="rate">РљР»СЋС‡РµРІР°СЏ СЃС‚Р°РІРєР° Р¦Р‘ Р Р¤ (%)</label>
     <input type="number" id="rate" min="0" value="21">
-    <button onclick="calc()">Рассчитать пеню по 44-ФЗ</button>
+    <button onclick="calc()">Р Р°СЃСЃС‡РёС‚Р°С‚СЊ РїРµРЅСЋ РїРѕ 44-Р¤Р—</button>
     <div class="result" id="r">
-      <div class="amount" id="total">0 ₽</div>
+      <div class="amount" id="total">0 в‚Ѕ</div>
       <div class="detail" id="detail"></div>
     </div>
   </div>
 
   <div class="card article">
-    <h2>Правила расчёта пени по 44-ФЗ</h2>
-    <p>По закону 44-ФЗ пеня начисляется поставщику за каждый день просрочки исполнения обязательств.</p>
+    <h2>РџСЂР°РІРёР»Р° СЂР°СЃС‡С‘С‚Р° РїРµРЅРё РїРѕ 44-Р¤Р—</h2>
+    <p>РџРѕ Р·Р°РєРѕРЅСѓ 44-Р¤Р— РїРµРЅСЏ РЅР°С‡РёСЃР»СЏРµС‚СЃСЏ РїРѕСЃС‚Р°РІС‰РёРєСѓ Р·Р° РєР°Р¶РґС‹Р№ РґРµРЅСЊ РїСЂРѕСЃСЂРѕС‡РєРё РёСЃРїРѕР»РЅРµРЅРёСЏ РѕР±СЏР·Р°С‚РµР»СЊСЃС‚РІ.</p>
     <ol>
-      <li><strong>Первые 30 дней:</strong> пеня = сумма долга × 1/300 ключевой ставки ЦБ × дни просрочки.</li>
-      <li><strong>С 31-го дня:</strong> пеня = сумма долга × 1/150 ключевой ставки ЦБ × дни просрочки.</li>
+      <li><strong>РџРµСЂРІС‹Рµ 30 РґРЅРµР№:</strong> РїРµРЅСЏ = СЃСѓРјРјР° РґРѕР»РіР° Г— 1/300 РєР»СЋС‡РµРІРѕР№ СЃС‚Р°РІРєРё Р¦Р‘ Г— РґРЅРё РїСЂРѕСЃСЂРѕС‡РєРё.</li>
+      <li><strong>РЎ 31-РіРѕ РґРЅСЏ:</strong> РїРµРЅСЏ = СЃСѓРјРјР° РґРѕР»РіР° Г— 1/150 РєР»СЋС‡РµРІРѕР№ СЃС‚Р°РІРєРё Р¦Р‘ Г— РґРЅРё РїСЂРѕСЃСЂРѕС‡РєРё.</li>
     </ol>
-    <p><strong>Пример.</strong> Контракт на 500 000 ₽, просрочка 45 дней, ставка 21%:</p>
-    <p>30 дней: 500 000 × 21% ÷ 300 × 30 = <strong>10 500 ₽</strong><br>
-    15 дней: 500 000 × 21% ÷ 150 × 15 = <strong>10 500 ₽</strong><br>
-    Итого: <strong>21 000 ₽</strong></p>
-    <p>Расчёт по ставке, действовавшей в каждый период просрочки. Если ставка менялась — делите период на отрезки.</p>
+    <p><strong>РџСЂРёРјРµСЂ.</strong> РљРѕРЅС‚СЂР°РєС‚ РЅР° 500 000 в‚Ѕ, РїСЂРѕСЃСЂРѕС‡РєР° 45 РґРЅРµР№, СЃС‚Р°РІРєР° 21%:</p>
+    <p>30 РґРЅРµР№: 500 000 Г— 21% Г· 300 Г— 30 = <strong>10 500 в‚Ѕ</strong><br>
+    15 РґРЅРµР№: 500 000 Г— 21% Г· 150 Г— 15 = <strong>10 500 в‚Ѕ</strong><br>
+    РС‚РѕРіРѕ: <strong>21 000 в‚Ѕ</strong></p>
+    <p>Р Р°СЃС‡С‘С‚ РїРѕ СЃС‚Р°РІРєРµ, РґРµР№СЃС‚РІРѕРІР°РІС€РµР№ РІ РєР°Р¶РґС‹Р№ РїРµСЂРёРѕРґ РїСЂРѕСЃСЂРѕС‡РєРё. Р•СЃР»Рё СЃС‚Р°РІРєР° РјРµРЅСЏР»Р°СЃСЊ вЂ” РґРµР»РёС‚Рµ РїРµСЂРёРѕРґ РЅР° РѕС‚СЂРµР·РєРё.</p>
   </div>
 
   <div class="card article">
-    <p><a href="index.html">← Калькулятор пеней по ставке ЦБ (универсальный)</a></p>
-    <p><a href="penya-kommunalka.html">Пеня за коммунальные услуги (ЖКХ)</a></p>
-    <p><a href="penya-nalogi.html">Пеня по налогам</a></p>
-    <p><a href="stavka-cb.html">История ключевой ставки ЦБ</a></p>
+    <p><a href="index.html">в†ђ РљР°Р»СЊРєСѓР»СЏС‚РѕСЂ РїРµРЅРµР№ РїРѕ СЃС‚Р°РІРєРµ Р¦Р‘ (СѓРЅРёРІРµСЂСЃР°Р»СЊРЅС‹Р№)</a></p>
+    <p><a href="penya-kommunalka.html">РџРµРЅСЏ Р·Р° РєРѕРјРјСѓРЅР°Р»СЊРЅС‹Рµ СѓСЃР»СѓРіРё (Р–РљРҐ)</a></p>
+    <p><a href="penya-nalogi.html">РџРµРЅСЏ РїРѕ РЅР°Р»РѕРіР°Рј</a></p>
+    <p><a href="stavka-cb.html">РСЃС‚РѕСЂРёСЏ РєР»СЋС‡РµРІРѕР№ СЃС‚Р°РІРєРё Р¦Р‘</a></p>
   </div>
 </div>
-<footer><p>© 2026 Калькулятор пеней по ставке ЦБ РФ</p></footer>
+<footer><p>В© 2026 РљР°Р»СЊРєСѓР»СЏС‚РѕСЂ РїРµРЅРµР№ РїРѕ СЃС‚Р°РІРєРµ Р¦Р‘ Р Р¤</p></footer>
 <script>
-function fmt(n){return n.toLocaleString("ru-RU",{minimumFractionDigits:2,maximumFractionDigits:2})+" ₽";}
+function fmt(n){return n.toLocaleString("ru-RU",{minimumFractionDigits:2,maximumFractionDigits:2})+" в‚Ѕ";}
 function calc(){
   var d=parseFloat(document.getElementById("debt").value)||0;
   var days=parseInt(document.getElementById("days").value,10)||0;
@@ -82,7 +82,7 @@ function calc(){
   var total=p1+p2;
   document.getElementById("r").classList.add("show");
   document.getElementById("total").textContent=fmt(total);
-  var s="Первые 30 дн.: "+fmt(p1)+" | с 31-го дн.: "+fmt(p2);
+  var s="РџРµСЂРІС‹Рµ 30 РґРЅ.: "+fmt(p1)+" | СЃ 31-РіРѕ РґРЅ.: "+fmt(p2);
   document.getElementById("detail").textContent=s;
 }
 </script>
