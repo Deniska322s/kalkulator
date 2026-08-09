@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Пеня по 44-ФЗ — калькулятор неустойки поставщика 1/300 и 1/150</title>
+<meta name="description" content="Расчёт пени по 44-ФЗ для поставщика: 1/300 ключевой ставки до 30 дней, с 31-го дня — 1/150. Формулы, примеры и актуальная ставка ЦБ РФ.">
+<link rel="canonical" href="https://USER.github.io/peni-kalkulyator/penya-44-fz.html">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.6; color: #1f2937; background: #f3f4f6; }
+.container { max-width: 860px; margin: 0 auto; padding: 20px; }
+header { background: #1d4ed8; color: #fff; padding: 28px 20px; text-align: center; }
+header h1 { font-size: 1.5rem; }
+.card { background: #fff; border-radius: 12px; padding: 24px; margin-top: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+label { display: block; font-weight: 600; margin: 16px 0 6px; }
+input { width: 100%; padding: 12px; font-size: 1rem; border: 1px solid #d1d5db; border-radius: 8px; }
+.hint { font-size: 0.85rem; color: #6b7280; margin-top: 4px; }
+button { width: 100%; margin-top: 24px; padding: 14px; font-size: 1.1rem; font-weight: 700; background: #16a34a; color: #fff; border: none; border-radius: 8px; cursor: pointer; }
+button:hover { background: #15803d; }
+.result { display: none; background: #ecfdf5; border: 2px solid #16a34a; border-radius: 12px; padding: 20px; margin-top: 20px; }
+.result.show { display: block; }
+.result .amount { font-size: 2rem; font-weight: 800; color: #166534; text-align: center; }
+.result .detail { font-size: 0.9rem; margin-top: 8px; }
+.article h2 { font-size: 1.25rem; margin: 24px 0 8px; color: #1d4ed8; }
+.article p, .article li { margin-bottom: 8px; }
+.article ul, .article ol { padding-left: 24px; margin-bottom: 12px; }
+footer { text-align: center; padding: 30px 20px; color: #6b7280; font-size: 0.85rem; }
+</style>
+</head>
+<body>
+<header>
+  <div class="container"><h1>Калькулятор пени по 44-ФЗ (для поставщика)</h1></div>
+</header>
+<div class="container">
+  <div class="card">
+    <label for="debt">Цена контракта / сумма обязательства (₽)</label>
+    <input type="number" id="debt" min="0" value="500000">
+    <label for="days">Дней просрочки</label>
+    <input type="number" id="days" min="1" value="45">
+    <label for="rate">Ключевая ставка ЦБ РФ (%)</label>
+    <input type="number" id="rate" min="0" value="21">
+    <button onclick="calc()">Рассчитать пеню по 44-ФЗ</button>
+    <div class="result" id="r">
+      <div class="amount" id="total">0 ₽</div>
+      <div class="detail" id="detail"></div>
+    </div>
+  </div>
+
+  <div class="card article">
+    <h2>Правила расчёта пени по 44-ФЗ</h2>
+    <p>По закону 44-ФЗ пеня начисляется поставщику за каждый день просрочки исполнения обязательств.</p>
+    <ol>
+      <li><strong>Первые 30 дней:</strong> пеня = сумма долга × 1/300 ключевой ставки ЦБ × дни просрочки.</li>
+      <li><strong>С 31-го дня:</strong> пеня = сумма долга × 1/150 ключевой ставки ЦБ × дни просрочки.</li>
+    </ol>
+    <p><strong>Пример.</strong> Контракт на 500 000 ₽, просрочка 45 дней, ставка 21%:</p>
+    <p>30 дней: 500 000 × 21% ÷ 300 × 30 = <strong>10 500 ₽</strong><br>
+    15 дней: 500 000 × 21% ÷ 150 × 15 = <strong>10 500 ₽</strong><br>
+    Итого: <strong>21 000 ₽</strong></p>
+    <p>Расчёт по ставке, действовавшей в каждый период просрочки. Если ставка менялась — делите период на отрезки.</p>
+  </div>
+
+  <div class="card article">
+    <p><a href="index.html">← Калькулятор пеней по ставке ЦБ (универсальный)</a></p>
+    <p><a href="penya-kommunalka.html">Пеня за коммунальные услуги (ЖКХ)</a></p>
+    <p><a href="penya-nalogi.html">Пеня по налогам</a></p>
+    <p><a href="stavka-cb.html">История ключевой ставки ЦБ</a></p>
+  </div>
+</div>
+<footer><p>© 2026 Калькулятор пеней по ставке ЦБ РФ</p></footer>
+<script>
+function fmt(n){return n.toLocaleString("ru-RU",{minimumFractionDigits:2,maximumFractionDigits:2})+" ₽";}
+function calc(){
+  var d=parseFloat(document.getElementById("debt").value)||0;
+  var days=parseInt(document.getElementById("days").value,10)||0;
+  var r=parseFloat(document.getElementById("rate").value)||0;
+  var d30=Math.min(days,30);
+  var rest=Math.max(days-30,0);
+  var p1=d*(r/100/300)*d30;
+  var p2=d*(r/100/150)*rest;
+  var total=p1+p2;
+  document.getElementById("r").classList.add("show");
+  document.getElementById("total").textContent=fmt(total);
+  var s="Первые 30 дн.: "+fmt(p1)+" | с 31-го дн.: "+fmt(p2);
+  document.getElementById("detail").textContent=s;
+}
+</script>
+</body>
+</html>

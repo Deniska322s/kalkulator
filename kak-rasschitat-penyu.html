@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Как рассчитать пеню по ставке ЦБ — формула и примеры 2026</title>
+<meta name="description" content="Полное руководство: формула расчёта пени, 1/300 и 1/150 ключевой ставки, расчёт по периодам, частые ошибки. Понятные примеры 2026 года.">
+<link rel="canonical" href="https://USER.github.io/peni-kalkulyator/kak-rasschitat-penyu.html">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.6; color: #1f2937; background: #f3f4f6; }
+.container { max-width: 860px; margin: 0 auto; padding: 20px; }
+header { background: #1d4ed8; color: #fff; padding: 28px 20px; text-align: center; }
+header h1 { font-size: 1.5rem; }
+.card { background: #fff; border-radius: 12px; padding: 24px; margin-top: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+.article h2 { font-size: 1.25rem; margin: 24px 0 8px; color: #1d4ed8; }
+.article h3 { font-size: 1.05rem; margin: 16px 0 6px; }
+.article p, .article li { margin-bottom: 8px; }
+.article ul, .article ol { padding-left: 24px; margin-bottom: 12px; }
+.formula { background: #eff6ff; border-left: 4px solid #1d4ed8; padding: 16px; border-radius: 8px; font-weight: 700; margin: 12px 0; }
+footer { text-align: center; padding: 30px 20px; color: #6b7280; font-size: 0.85rem; }
+</style>
+</head>
+<body>
+<header><div class="container"><h1>Как рассчитать пеню: полное руководство</h1></div></header>
+<div class="container">
+  <div class="card article">
+    <h2>Базовая формула расчёта пени</h2>
+    <div class="formula">Пеня = Сумма долга × (Ключевая ставка ÷ 300) × Количество дней просрочки</div>
+    <p>Число 300 означает 1/300 долю ключевой ставки за каждый день. В зависимости от ситуации делитель меняется: 300, 150, 130 или 360.</p>
+
+    <h2>Пошаговый алгоритм</h2>
+    <ol>
+      <li>Определите сумму задолженности.</li>
+      <li>Узнайте ключевую ставку ЦБ, действующую в период просрочки.</li>
+      <li>Подсчитайте количество дней просрочки (с дня, следующего за сроком оплаты, по день фактической оплаты).</li>
+      <li>Выберите делитель: 1/300 — по умолчанию, 1/150 — с 31-го дня для организаций по 44-ФЗ и налогам, 1/130 — с 91-го дня по ЖКХ, 1/360 — по отдельным договорам.</li>
+      <li>Подставьте значения в формулу.</li>
+    </ol>
+
+    <h2>Пример 1: пеня по договору (1/300)</h2>
+    <p>Долг 50 000 ₽, просрочка 25 дней, ставка 21%:</p>
+    <p>50 000 × 21% ÷ 300 × 25 = <strong>875 ₽</strong></p>
+
+    <h2>Пример 2: если ставка менялась за период</h2>
+    <p>Долг 100 000 ₽, период с 1 по 40 день просрочки. С 1 по 15 день ставка 19%, с 16 по 40 день — 21%.</p>
+    <p>Период 1: 100 000 × 19% ÷ 300 × 15 = <strong>950 ₽</strong><br>
+    Период 2: 100 000 × 21% ÷ 300 × 25 = <strong>1 750 ₽</strong><br>
+    Итого: <strong>2 700 ₽</strong></p>
+
+    <h2>Частые ошибки</h2>
+    <ul>
+      <li>Использование старой ставки вместо ставки, действовавшей в период просрочки.</li>
+      <li>Пропуск разделения периода при смене ставки ЦБ.</li>
+      <li>Деление на 365 вместо делителя из договора (300, 130 и т.д.).</li>
+      <li>Округление в пользу должника вместо расчёта по каждому дню.</li>
+    </ul>
+
+    <h2>Используйте онлайн-калькулятор</h2>
+    <p>Чтобы не ошибиться, воспользуйтесь <a href="index.html">калькулятором пеней по ставке ЦБ</a> — он считает автоматически.</p>
+    <p><a href="procenty-395.html">Проценты по ст. 395 ГК РФ</a> · <a href="penya-nalogi.html">Пеня по налогам</a></p>
+  </div>
+</div>
+<footer><p>© 2026 Калькулятор пеней по ставке ЦБ РФ</p></footer>
+</body>
+</html>

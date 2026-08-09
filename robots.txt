@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://peni-kalkulyator.vercel.app/sitemap.xml
